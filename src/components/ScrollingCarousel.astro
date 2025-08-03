@@ -1,0 +1,76 @@
+---
+const skills = [
+    { name: ".NET", icon: "dotnet" },
+    { name: "Astro", icon: "astro" },
+    { name: "Docker", icon: "docker" },
+    { name: "Git", icon: "git" },
+    { name: "JavaScript", icon: "javascript" },
+    { name: "Tailwind CSS", icon: "tailwindcss-light" },
+    { name: "PostgreSQL", icon: "postgresql-light" },
+    { name: "Prometheus", icon: "prometheus" },
+    { name: "Python", icon: "python-light" },
+    { name: "R", icon: "r-light" },
+    { name: "Spring", icon: "spring-light" },
+    { name: "Svelte", icon: "svelte" },
+    { name: "VS Code", icon: "vscode-light" },
+];
+
+import { Icon } from "astro-icon/components";
+---
+
+<div class="scroll-fade-wrapper p-2">
+  <div class="horizontal-scroll-animation flex gap-6 md:gap-12 left-0 top-0">
+        {
+            [...skills, ...skills].map((skill, index) => (
+                <div class="flex gap-2 group">
+                    <Icon
+                        name=`skill-icons:${skill.icon}`
+                        width="30"
+                        height="30"
+                        class="group-hover:scale-110"
+                    />
+                    <span class="text-lg font-medium whitespace-nowrap">{skill.name}</span>
+                </div>
+            ))
+        }
+    </div>
+</div>
+
+<style is:global>
+    .scroll-fade-wrapper {
+        overflow: hidden;
+        width: 100%;
+        /* Fade-out effect using mask (left to right) */
+        -webkit-mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%
+        );
+        mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%
+        );
+    }
+
+    @keyframes horizontal-scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-171.5%);
+        }
+    }
+
+    .horizontal-scroll-animation {
+        animation: horizontal-scroll 40s linear infinite;
+    }
+
+    .horizontal-scroll-animation:hover {
+        animation-play-state: paused;
+    }
+</style>

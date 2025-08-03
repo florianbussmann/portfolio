@@ -3,6 +3,7 @@
 // Page section components
 import ContactCTA from "../components/ContactCTA.astro";
 import Hero from "../components/Hero.astro";
+import ScrollingCarousel from "../components/ScrollingCarousel.astro";
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -36,7 +37,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 						<p>
 							👯 Keen to join <a
 								href="https://github.com/florianbussmann"
-								>open source projects</a>
+								>open source projects</a
+							>
 						</p>
 					</div>
 					<div class="duration-200 hover:scale-105">
@@ -49,6 +51,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 				</div>
 			</header>
 		</div>
+
+		<ScrollingCarousel />
 
 		<ContactCTA />
 	</div>
